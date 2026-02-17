@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comfy Corner</title>
+    <!-- tailwind -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Belleza&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- navbar -->
+      <div class="navbar bg-base-100 shadow-sm px-5 md:px-16 lg:px-32">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="-1"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li><a href="index.html">Home</a></li>
+              <li><a class="text-indigo-500">Product</a></li>
+              <li><a>About</a></li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
+          <a class="btn btn-ghost text-xl text-indigo-500">Comfy_Corner</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 font-semibold">
+            <li><a href="index.html">Home</a></li>
+            <li><a class="text-indigo-500">Product</a></li>
+            <li><a>About</a></li>
+            <li><a>Contact</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- products container -->
+      <section class="py-10 lg:py-20 px-6 lg:px-16" id="productsPageContainer">
+        <h1 class="text-2xl lg:text-5xl font-bold text-center">Our Products</h1>
+        <div
+          id="categoryButtonContainer"
+          class="pt-5 grid grid-cols-3 gap-2 lg:flex lg:gap-5 lg:justify-center lg:items-center"
+        ></div>
+        <div
+          id="productContainer"
+          class="py-16 grid grid-cols-1 lg:grid-cols-3 gap-10"
+        ></div>
+      </section>
+    </main>
+    <!-- Open the modal using ID.showModal() method -->
+    <dialog id="my_modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="detailsContainer">
+        </div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+    <footer class="px-20 py-16 text-gray-300 bg-black">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-20 lato">
+        <div>
+          <h1 class="text-xl text-indigo-600 font-semibold pb-4">
+            Comfy_Corner
+          </h1>
+          <p class="text-gray-400">
+            Your one step shop for all your fashion and lifestyle needs. Quality
+            products, fast delivery, and excellent support.
+          </p>
+        </div>
+        <div>
+          <ul class="flex flex-col gap-2">
+            <li>
+              <a href="" class="text-gray-400 font-semibold text-lg"
+                >Quick Links</a
+              >
+            </li>
+            <li><a href="index.hrml">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="flex flex-col gap-2">
+            <li>
+              <a href="" class="text-gray-400 font-semibold text-lg">Support</a>
+            </li>
+            <li><a href="">FAQ</a></li>
+            <li><a href="">Shopping</a></li>
+            <li><a href="">Return</a></li>
+            <li><a href="">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h1 class="text-gray-400 font-semibold text-xl">
+            Subscribe to our Newsletter
+          </h1>
+          <p class="py-4">
+            The latest news, articles and resources send to your inbox weekly.
+          </p>
+          <div class="flex gap-4">
+            <input
+              type="text"
+              placeholder="Enter your email"
+              class="input input-primary"
+            />
+            <button class="btn btn-primary">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <hr class="my-5" />
+      <div class="flex justify-between items-center">
+        <div>
+          <p>@ Comfy Corner. All right reserved.</p>
+        </div>
+        <div class="flex gap-4">
+          <i
+            class="fa-brands fa-facebook"
+            style="color: rgba(230, 230, 230, 1)"
+          ></i>
+          <i
+            class="fa-brands fa-square-twitter"
+            style="color: rgba(230, 230, 230, 1)"
+          ></i>
+          <i
+            class="fa-brands fa-instagram"
+            style="color: rgba(230, 230, 230, 1)"
+          ></i>
+          <i
+            class="fa-brands fa-telegram"
+            style="color: rgba(230, 230, 230, 1)"
+          ></i>
+          <i
+            class="fa-solid fa-envelope"
+            style="color: rgba(230, 230, 230, 1)"
+          ></i>
+        </div>
+      </div>
+    </footer>
+    <!-- js -->
+    <script src="./scripts/script2.js"></script>
+  </body>
+</html>

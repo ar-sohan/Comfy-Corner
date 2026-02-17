@@ -1,10 +1,69 @@
 const loadData = () => {
-  fetch("https://fakestoreapi.com/products")
+  fetch("https://fakestoreapi.com/products/categories")
     .then((res) => res.json())
     .then((data) => {
-      trendingProduct(data);
+      displayCategories(data);
     });
 };
+
+const setButtonActive = (clickedButton) => {
+  const allButtons = document.querySelectorAll(
+    "#categoryButtonContainer button",
+  );
+  allButtons.forEach((btn) => btn.classList.remove("btn-active"));
+  clickedButton.classList.add("btn-active");
+};
+
+const displayCategories = (data) => {
+  const categoryButtonContainer = document.getElementById(
+    "categoryButtonContainer",
+  );
+  categoryButtonContainer.innerHTML = "";
+
+  const allDiv = document.createElement("div");
+  const button = document.createElement("button");
+  button.className = "btn btn-outline btn-active text-indigo-600 rounded-full";
+  button.innerText = "All";
+
+  button.addEventListener("click", (e) => {
+    loadCategoryData("all");
+    setButtonActive(e.target);
+  });
+
+  allDiv.appendChild(button);
+  categoryButtonContainer.appendChild(allDiv);
+  for (let category of data) {
+    const btnDiv = document.createElement("div");
+
+    btnDiv.innerHTML = `
+        <button class="btn btn-outline text-indigo-600 rounded-full">
+            ${category[0].toUpperCase()}${category.slice(1)}
+        </button>
+    `;
+    const button = btnDiv.querySelector("button");
+
+    button.addEventListener("click", (e) => {
+      loadCategoryData(category);
+      setButtonActive(e.target);
+    });
+
+    categoryButtonContainer.appendChild(btnDiv);
+  }
+};
+
+const loadCategoryData = (category) => {
+  const encodedCategory = encodeURIComponent(category);
+  let url;
+  if (category === "all") {
+    url = "https://fakestoreapi.com/products";
+  } else {
+    url = `https://fakestoreapi.com/products/category/${encodedCategory}`;
+  }
+  fetch(url)
+    .then((res) => res.json())
+    .then((categoryData) => showCategoryData(categoryData));
+};
+
 const loadProductDetails = async (id) => {
   const url = `https://fakestoreapi.com/products/${id}`;
   const res = await fetch(url);
@@ -42,13 +101,14 @@ const displayProductDetails = (details) => {
   document.getElementById("my_modal").showModal();
 };
 
-const trendingProduct = (data) => {
-  const trendingProductContainer = document.getElementById("trendingProduct");
-  trendingProductContainer.innerHTML = "";
-  data.forEach((element) => {
-    if (element.price >= 599) {
-      const productSection = document.createElement("div");
-      productSection.innerHTML = `
+const showCategoryData = (categoryData) => {
+  const categoryDataContainer = document.getElementById("productContainer");
+  categoryDataContainer.innerHTML = "";
+  if (categoryData == null) {
+  }
+  categoryData.forEach((element) => {
+    const product = document.createElement("div");
+    product.innerHTML = `
         <div class="shadow-sm">
             <div class="bg-gray-300 flex justify-center items-center m-auto py-4">
               <figure>
@@ -83,9 +143,10 @@ const trendingProduct = (data) => {
             </div>
           </div>
         `;
-      trendingProductContainer.appendChild(productSection);
-    }
+    categoryDataContainer.appendChild(product);
   });
 };
+
+loadCategoryData("all");
 
 loadData();

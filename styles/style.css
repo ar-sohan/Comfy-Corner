@@ -6,3 +6,8 @@
 .lato {
   font-family: "Lato", sans-serif;
 }
+
+.btn-active{
+  background-color: indigo;
+  color: white;
+}

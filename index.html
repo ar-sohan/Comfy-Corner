@@ -56,7 +56,7 @@
               class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li><a class="text-indigo-500">Home</a></li>
-              <li><a>Product</a></li>
+              <li><a href="products.html">Product</a></li>
               <li><a>About</a></li>
               <li><a>Contact</a></li>
             </ul>
@@ -66,7 +66,7 @@
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1 font-semibold">
             <li><a class="text-indigo-500">Home</a></li>
-            <li><a>Product</a></li>
+            <li><a href="products.html">Product</a></li>
             <li><a>About</a></li>
             <li><a>Contact</a></li>
           </ul>
@@ -181,11 +181,24 @@
           class="py-16 grid grid-cols-1 lg:grid-cols-3 gap-10"
         ></div>
       </section>
+      <!-- Open the modal using ID.showModal() method -->
+    <dialog id="my_modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="detailsContainer">
+        </div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
     </main>
     <footer
       class="px-20 py-16 text-gray-300 bg-black"
     >
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-20 lato">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-20 lato">
         <div>
           <h1 class="text-xl text-indigo-600 font-semibold pb-4">Comfy_Corner</h1>
           <p class="text-gray-400">
@@ -222,7 +235,7 @@
               placeholder="Enter your email"
               class="input input-primary"
             />
-            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-primary">Subscribe</button>
           </div>
         </div>
       </div>
