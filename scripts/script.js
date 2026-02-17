@@ -13,11 +13,12 @@ const trendingProduct = (data) => {
       const productSection = document.createElement("div");
       productSection.innerHTML = `
         <div class="shadow-sm">
-            <div class="bg-gray-300 flex justify-center items-center m-auto py-4 w-[30%]">
-              <figure class="w-1/3">
+            <div class="bg-gray-300 flex justify-center items-center m-auto py-4">
+              <figure>
                 <img
                   src="${element.image}"
                   alt="Shoes"
+                  class="w-[100px] h-[150px]"
                 />
               </figure>
             </div>
